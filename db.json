@@ -1,25 +1,98 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "user1",
       "password": "password1"
+    },
+    {
+      "id": "ff9b",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "7c2c",
+      "username": "tiago",
+      "password": "123456"
+    },
+    {
+      "id": "f3e3",
+      "name": "Tiago ",
+      "email": "tiago@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "ec2d",
+      "name": "dsadsa",
+      "email": "dsada",
+      "password": "dsad"
+    },
+    {
+      "id": "5267",
+      "name": "ogas",
+      "email": "ogas@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "b634",
+      "name": "dasdsa",
+      "email": "aa@gmail.com",
+      "password": "123456"
     }
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "author": {
         "avatarUrl": "https://github.com/tostechbr.png",
         "name": "Tiago Oliveira",
         "role": "Dev"
       },
       "content": [
-        { "type": "paragraph", "content": "Fala galera 👋" },
-        { "type": "paragraph", "content": "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀" },
-        { "type": "link", "content": "jane.design/doctorcare" }
+        {
+          "type": "paragraph",
+          "content": "Fala galera 👋"
+        },
+        {
+          "type": "paragraph",
+          "content": "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"
+        },
+        {
+          "type": "link",
+          "content": "jane.design/doctorcare"
+        }
       ],
       "publishedAt": "2022-05-03T20:00:00"
+    },
+    {
+      "id": "da5c",
+      "title": "dsad",
+      "content": "dasda",
+      "author": {
+        "name": "Anonymous",
+        "avatarUrl": ""
+      },
+      "publishedAt": "2024-08-18T21:23:33.979Z"
+    },
+    {
+      "id": "ac2f",
+      "title": "dsad",
+      "content": "dsada",
+      "author": {
+        "name": "User",
+        "avatarUrl": ""
+      },
+      "publishedAt": "2024-08-18T21:25:34.420Z"
+    },
+    {
+      "id": "58fd",
+      "title": "dsada",
+      "content": "dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "author": {
+        "name": "User",
+        "avatarUrl": ""
+      },
+      "publishedAt": "2024-08-18T21:25:42.418Z"
     }
   ]
 }

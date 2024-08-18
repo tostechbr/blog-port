@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, Avatar, Button, Divider } from '@mui/material';
 import { PencilLine } from 'phosphor-react';
+import { useNavigate } from 'react-router-dom';
 
 export function Sidebar() {
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Busca os dados do usuário armazenados no localStorage
+    const storedUser = localStorage.getItem('loggedUser');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    // Remove os dados do usuário do localStorage
+    localStorage.removeItem('loggedUser');
+    // Redireciona para a página de login
+    navigate('/login');
+  };
+
+  if (!user) {
+    return null; // Ou exiba um loader ou algo do tipo
+  }
+
   return (
     <Box
       component="aside"
@@ -35,22 +58,30 @@ export function Sidebar() {
         }}
       >
         <Avatar
-          src="https://github.com/maykbrito.png"
-          alt="Diego Fernandes"
-          sx={{ width: 64, height: 64, border: '4px solid var(--gray-800)' }}
-        />
+          alt={user.name}
+          sx={{
+            width: 64,
+            height: 64,
+            border: '4px solid var(--gray-800)',
+            backgroundColor: 'var(--green-500)',
+            color: 'var(--white)',
+            fontSize: '24px',
+          }}
+        >
+          {user.name.charAt(0).toUpperCase()}
+        </Avatar>
         <Typography variant="h6" color="var(--gray-100)" sx={{ marginTop: 2 }}>
-          Diego Fernandes
+          {user.name}
         </Typography>
         <Typography variant="body2" color="var(--gray-400)">
-          Web Developer
+          {user.email}
         </Typography>
       </Box>
 
       <Divider sx={{ width: '100%', borderColor: 'var(--gray-600)', marginTop: 3 }} />
 
       <Button
-        href="#"
+        onClick={() => navigate('/profile')}
         variant="outlined"
         startIcon={<PencilLine size={20} />}
         sx={{
@@ -68,6 +99,29 @@ export function Sidebar() {
         }}
       >
         Editar seu perfil
+      </Button>
+
+
+      {/* Botão de Sair */}
+      <Button
+        variant="outlined"
+        startIcon={<PencilLine size={20} />}
+        onClick={handleLogout}
+        sx={{
+          marginTop: 3,
+          padding: '12px 24px',
+          color: 'var(--red-500)',
+          borderColor: 'var(--red-500)',
+          borderRadius: 2,
+          textTransform: 'none',
+          '&:hover': {
+            backgroundColor: 'var(--red-500)',
+            color: 'var(--white)',
+            borderColor: 'var(--red-500)',
+          },
+        }}
+      >
+        Sair
       </Button>
     </Box>
   );
