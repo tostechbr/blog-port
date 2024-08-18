@@ -2,41 +2,42 @@
   "users": [
     {
       "id": "1",
-      "username": "user1",
-      "password": "password1"
+      "username": "alice",
+      "password": "password123"
     },
     {
-      "id": "ff9b",
-      "username": "",
-      "password": ""
+      "id": "2",
+      "username": "bob",
+      "password": "password123"
     },
     {
-      "id": "7c2c",
-      "username": "tiago",
-      "password": "123456"
+      "id": "3",
+      "name": "Carlos Silva",
+      "email": "carlos@gmail.com",
+      "password": "password123"
     },
     {
-      "id": "f3e3",
-      "name": "Tiago ",
+      "id": "4",
+      "name": "Diana Costa",
+      "email": "diana@gmail.com",
+      "password": "password123"
+    },
+    {
+      "id": "75b1",
+      "name": "Tiago",
       "email": "tiago@gmail.com",
       "password": "123456"
     },
     {
-      "id": "ec2d",
-      "name": "dsadsa",
-      "email": "dsada",
-      "password": "dsad"
-    },
-    {
-      "id": "5267",
-      "name": "ogas",
-      "email": "ogas@gmail.com",
+      "id": "6d94",
+      "name": "Tiago",
+      "email": "tiago2@gmail.com",
       "password": "123456"
     },
     {
-      "id": "b634",
-      "name": "dasdsa",
-      "email": "aa@gmail.com",
+      "id": "34c1",
+      "name": "Tiago Oliveira",
+      "email": "tiago2@gmail.com",
       "password": "123456"
     }
   ],
@@ -44,55 +45,108 @@
     {
       "id": "1",
       "author": {
-        "avatarUrl": "https://github.com/tostechbr.png",
-        "name": "Tiago Oliveira",
-        "role": "Dev"
+        "avatarUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+        "name": "Carlos Silva",
+        "role": "Full Stack Developer"
       },
       "content": [
         {
           "type": "paragraph",
-          "content": "Fala galera 👋"
+          "content": "Olá pessoal! Finalizei a integração com o novo sistema de pagamento. Tudo funcionando perfeitamente!"
         },
         {
           "type": "paragraph",
-          "content": "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"
+          "content": "Agora podemos processar pagamentos de forma rápida e segura."
         },
         {
           "type": "link",
-          "content": "jane.design/doctorcare"
+          "content": "https://meuprojeto.com/pagamentos"
         }
       ],
-      "publishedAt": "2022-05-03T20:00:00"
+      "publishedAt": "2023-08-18T10:00:00"
     },
     {
-      "id": "da5c",
-      "title": "dsad",
-      "content": "dasda",
+      "id": "2",
       "author": {
-        "name": "Anonymous",
-        "avatarUrl": ""
+        "avatarUrl": "https://randomuser.me/api/portraits/women/44.jpg",
+        "name": "Diana Costa",
+        "role": "UI/UX Designer"
       },
-      "publishedAt": "2024-08-18T21:23:33.979Z"
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "Trabalhei no redesign da interface do nosso aplicativo. Espero que gostem das melhorias visuais!"
+        },
+        {
+          "type": "paragraph",
+          "content": "Acredito que a nova interface vai proporcionar uma experiência ainda melhor para os usuários."
+        }
+      ],
+      "publishedAt": "2023-08-18T12:00:00"
     },
     {
-      "id": "ac2f",
-      "title": "dsad",
-      "content": "dsada",
+      "id": "3",
       "author": {
-        "name": "User",
-        "avatarUrl": ""
+        "avatarUrl": "https://randomuser.me/api/portraits/men/65.jpg",
+        "name": "Eduardo Ramos",
+        "role": "Backend Developer"
       },
-      "publishedAt": "2024-08-18T21:25:34.420Z"
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "Hoje resolvi um bug crítico no sistema de autenticação. Agora está tudo seguro!"
+        }
+      ],
+      "publishedAt": "2023-08-18T14:00:00"
     },
     {
-      "id": "58fd",
-      "title": "dsada",
-      "content": "dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": "4",
       "author": {
-        "name": "User",
-        "avatarUrl": ""
+        "avatarUrl": "https://randomuser.me/api/portraits/women/68.jpg",
+        "name": "Fernanda Souza",
+        "role": "Project Manager"
       },
-      "publishedAt": "2024-08-18T21:25:42.418Z"
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "Estamos progredindo bem no projeto. A próxima fase será a implementação do módulo de relatórios."
+        },
+        {
+          "type": "paragraph",
+          "content": "Vamos manter o ritmo e entregar tudo no prazo!"
+        }
+      ],
+      "publishedAt": "2023-08-18T16:00:00"
+    },
+    {
+      "id": "1724021555209",
+      "author": {
+        "name": "Tiago Oliveira",
+        "avatarUrl": "",
+        "role": "User"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "To de férias eim!!! "
+        }
+      ],
+      "publishedAt": "2024-08-18T22:52:35.209Z"
+    },
+    {
+      "id": "1724023398823",
+      "author": {
+        "name": "Tiago Oliveira",
+        "avatarUrl": "",
+        "role": "User"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "Ferias up"
+        }
+      ],
+      "publishedAt": "2024-08-18T23:23:18.823Z"
     }
   ]
 }
