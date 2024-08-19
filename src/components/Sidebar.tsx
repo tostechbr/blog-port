@@ -9,7 +9,6 @@ export function Sidebar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Busca os dados do usuário armazenados no localStorage
     const storedUser = localStorage.getItem('loggedUser');
     if (storedUser) {
       setUser(JSON.parse(storedUser));

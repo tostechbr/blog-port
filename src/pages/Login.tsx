@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -46,7 +45,6 @@ export function AuthForm({ type }: { type: 'login' | 'register' }) {
         body: JSON.stringify(newUser),
       });
 
-      // Redirecionar para a página de login após o registro
       alert('Registro realizado com sucesso! Faça login para continuar.');
       navigate('/login');
     }

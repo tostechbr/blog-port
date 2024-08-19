@@ -38,7 +38,7 @@ export function Home() {
     };
 
     const storedUser = JSON.parse(localStorage.getItem('loggedUser') || '{}');
-    setUserEmail(storedUser.email); // Obtenha o email do usuário logado
+    setUserEmail(storedUser.email);
   
     fetchPosts();
   }, []);
