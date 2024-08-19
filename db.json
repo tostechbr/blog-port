@@ -24,7 +24,7 @@
     },
     {
       "id": "75b1",
-      "name": "Tiago",
+      "name": "Juse tiago",
       "email": "tiago@gmail.com",
       "password": "123456"
     },
@@ -38,6 +38,18 @@
       "id": "34c1",
       "name": "Tiago Oliveira",
       "email": "tiago2@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "aa2d",
+      "name": "t301222",
+      "email": "t301@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "9b1e",
+      "name": "juse almeida",
+      "email": "juse@gmail.com",
       "password": "123456"
     }
   ],
@@ -146,7 +158,82 @@
           "content": "Ferias up"
         }
       ],
-      "publishedAt": "2024-08-18T23:23:18.823Z"
+      "publishedAt": "2024-08-18T23:23:18.823Z",
+      "comments": [
+        {
+          "id": "1",
+          "author": {
+            "name": "User1",
+            "avatarUrl": "https://github.com/user1.png"
+          },
+          "content": "Post muito bacana, hein?!",
+          "publishedAt": "2022-05-03T21:00:00"
+        }
+      ]
+    },
+    {
+      "id": "1724030774008",
+      "author": {
+        "name": "Tiago Santos sadsa",
+        "avatarUrl": "",
+        "role": "User",
+        "email": "tiago@gmail.com"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "dsadasdsadas"
+        }
+      ],
+      "publishedAt": "2024-08-19T01:26:14.008Z"
+    },
+    {
+      "id": "1724030782647",
+      "author": {
+        "name": "Tiago Santos sadsa",
+        "avatarUrl": "",
+        "role": "User",
+        "email": "tiago@gmail.com"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsa"
+        }
+      ],
+      "publishedAt": "2024-08-19T01:26:22.647Z"
+    },
+    {
+      "id": "1724030873473",
+      "author": {
+        "name": "Juse tiago",
+        "avatarUrl": "",
+        "role": "User",
+        "email": "tiago@gmail.com"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "dsadadasaaa"
+        }
+      ],
+      "publishedAt": "2024-08-19T01:27:53.473Z"
+    },
+    {
+      "id": "1724032988398",
+      "author": {
+        "name": "juse almeida",
+        "avatarUrl": "",
+        "role": "User",
+        "email": "juse@gmail.com"
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "opa\n"
+        }
+      ],
+      "publishedAt": "2024-08-19T02:03:08.398Z"
     }
   ]
 }

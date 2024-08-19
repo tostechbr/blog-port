@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button, Modal, TextField, Avatar } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { Box, Typography, Button, Modal, TextField } from '@mui/material';
 import { Sidebar } from '../components/Sidebar';
+import { Avatar } from '../components/Avatar';
 
 import styles from '../App.module.css';
 
@@ -10,6 +11,7 @@ interface Post {
     avatarUrl: string;
     name: string;
     role: string;
+    email: string; 
   };
   content: Array<{ type: string; content: string }>;
   publishedAt: string;
@@ -19,6 +21,7 @@ export function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
+  const [userEmail, setUserEmail] = useState('');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -33,6 +36,9 @@ export function Home() {
         console.error('Erro ao buscar posts:', error);
       }
     };
+
+    const storedUser = JSON.parse(localStorage.getItem('loggedUser') || '{}');
+    setUserEmail(storedUser.email); // Obtenha o email do usuário logado
   
     fetchPosts();
   }, []);
@@ -48,6 +54,7 @@ export function Home() {
         name: storedUser.name,
         avatarUrl: '', 
         role: storedUser.role || 'User',
+        email: storedUser.email,
       },
       content: [{ type: 'paragraph', content }],
       publishedAt: new Date().toISOString(),
@@ -66,6 +73,18 @@ export function Home() {
     handleClose();
   };
 
+  const handleDeletePost = async (postId: string) => {
+    try {
+      await fetch(`http://localhost:5000/posts/${postId}`, {
+        method: 'DELETE',
+      });
+
+      setPosts((prevPosts) => prevPosts.filter(post => post.id !== postId));
+    } catch (error) {
+      console.error('Erro ao deletar post:', error);
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <Sidebar />
@@ -79,27 +98,44 @@ export function Home() {
 
         {posts.map((post) => (
           <Box key={post.id} sx={{ marginBottom: 4, backgroundColor: 'var(--gray-800)', padding: 2, borderRadius: 2 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Avatar
-                src={post.author.avatarUrl || ''}
-                alt={post.author.name}
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: '50%',
-                  marginRight: 2,
-                  backgroundColor: !post.author.avatarUrl ? 'var(--green-500)' : 'transparent',
-                  color: !post.author.avatarUrl ? 'var(--white)' : 'inherit',
-                  fontSize: '16px',
-                }}
-              >
-                {!post.author.avatarUrl && post.author.name.charAt(0).toUpperCase()}
-              </Avatar>
-              <Box>
-                <Typography variant="h6" color="var(--gray-100)" sx={{ marginBottom: 0 }}>
-                  {post.author.name}
-                </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Avatar
+                  src={post.author.avatarUrl || ''}
+                  alt={post.author.name}
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: '50%',
+                    marginRight: 2,
+                    backgroundColor: !post.author.avatarUrl ? 'var(--green-500)' : 'transparent',
+                    color: !post.author.avatarUrl ? 'var(--white)' : 'inherit',
+                    fontSize: '16px',
+                  }}
+                >
+                  {!post.author.avatarUrl && post.author.name.charAt(0).toUpperCase()}
+                </Avatar>
+                <Box>
+                  <Typography variant="h6" color="var(--gray-100)" sx={{ marginBottom: 0 }}>
+                    {post.author.name}
+                  </Typography>
+                </Box>
               </Box>
+              {post.author.email === userEmail && ( // Exibe o texto de deletar apenas se o usuário for o autor
+                <Typography
+                  onClick={() => handleDeletePost(post.id)}
+                  sx={{
+                    color: 'red',
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    '&:hover': {
+                      color: 'darkred',
+                    },
+                  }}
+                >
+                  Delete
+                </Typography>
+              )}
             </Box>
             {Array.isArray(post.content) ? (
               post.content.map((item, index) => (
@@ -168,7 +204,6 @@ export function Home() {
             </Button>
           </Box>
         </Modal>
-
       </main>
     </div>
   );

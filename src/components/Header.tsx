@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 export function Header() {
   return (
@@ -11,14 +11,16 @@ export function Header() {
         paddingY: '1.25rem',
       }}
     >
-      <Box
-        component="img"
-        src="https://via.placeholder.com/150x50.png?text=Ignite+Logo" // URL de logo genérico
-        alt="Logotipo do Ignite"
+      <Typography
+        variant="h4"
         sx={{
-          height: '2rem',
+          color: 'white',
+          fontWeight: 'bold',
+          fontFamily: 'Arial, sans-serif',
         }}
-      />
+      >
+        Post
+      </Typography>
     </Box>
   );
 }

@@ -71,99 +71,150 @@ export function AuthForm({ type }: { type: 'login' | 'register' }) {
   };
 
   return (
-    <Grid container component="main" sx={{ height: '100vh' }} justifyContent="center" alignItems="center">
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <Box
-          sx={{
-            my: 8,
-            mx: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            {type === 'login' ? 'Entrar' : 'Registrar'}
-          </Typography>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={type === 'login' ? handleLogin : handleRegister}
+    <Grid container component="main" sx={{ height: '100vh', backgroundColor: 'var(--gray-700)' }} justifyContent="center" alignItems="center">
+      <Grid item xs={12} sm={8} md={5}>
+        <Paper elevation={6} sx={{ backgroundColor: 'var(--gray-800)', padding: 4, borderRadius: '16px' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              color: 'var(--gray-100)',
+              borderRadius: '16px',
+            }}
           >
-            {({ handleSubmit, handleChange, values, errors, touched }) => (
-              <Form onSubmit={handleSubmit}>
-                {type === 'register' && (
+            <Box
+              sx={{ mb: 2, borderRadius: '8px' }}
+            />
+            <Typography component="h1" variant="h5" sx={{ mb: 2, color: 'var(--gray-100)' }}>
+              {type === 'login' ? 'Entrar' : 'Registrar'}
+            </Typography>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={type === 'login' ? handleLogin : handleRegister}
+            >
+              {({ handleSubmit, handleChange, values, errors, touched }) => (
+                <Form onSubmit={handleSubmit}>
+                  {type === 'register' && (
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      fullWidth
+                      id="name"
+                      label="Nome"
+                      name="name"
+                      autoComplete="name"
+                      autoFocus
+                      value={values.name}
+                      onChange={handleChange}
+                      error={touched.name && Boolean(errors.name)}
+                      helperText={touched.name && errors.name}
+                      InputProps={{
+                        style: { color: 'var(--gray-100)', borderRadius: '8px' },
+                      }}
+                      InputLabelProps={{
+                        style: { color: 'var(--gray-400)' },
+                      }}
+                    />
+                  )}
                   <TextField
                     variant="outlined"
                     margin="normal"
                     fullWidth
-                    id="name"
-                    label="Nome"
-                    name="name"
-                    autoComplete="name"
-                    autoFocus
-                    value={values.name}
+                    id="email"
+                    label="Email"
+                    name="email"
+                    autoComplete="email"
+                    value={values.email}
                     onChange={handleChange}
-                    error={touched.name && Boolean(errors.name)}
-                    helperText={touched.name && errors.name}
+                    error={touched.email && Boolean(errors.email)}
+                    helperText={touched.email && errors.email}
+                    InputProps={{
+                      style: { color: 'var(--gray-100)', borderRadius: '8px' },
+                    }}
+                    InputLabelProps={{
+                      style: { color: 'var(--gray-400)' },
+                    }}
                   />
-                )}
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  id="email"
-                  label="Email"
-                  name="email"
-                  autoComplete="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  error={touched.email && Boolean(errors.email)}
-                  helperText={touched.email && errors.email}
-                />
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  name="password"
-                  label="Senha"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  value={values.password}
-                  onChange={handleChange}
-                  error={touched.password && Boolean(errors.password)}
-                  helperText={touched.password && errors.password}
-                />
-                {type === 'register' && (
                   <TextField
                     variant="outlined"
                     margin="normal"
                     fullWidth
-                    name="confirmPassword"
-                    label="Confirmação de Senha"
+                    name="password"
+                    label="Senha"
                     type="password"
-                    id="confirmPassword"
-                    value={values.confirmPassword}
+                    id="password"
+                    autoComplete="current-password"
+                    value={values.password}
                     onChange={handleChange}
-                    error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-                    helperText={touched.confirmPassword && errors.confirmPassword}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={touched.password && errors.password}
+                    InputProps={{
+                      style: { color: 'var(--gray-100)', borderRadius: '8px' },
+                    }}
+                    InputLabelProps={{
+                      style: { color: 'var(--gray-400)' },
+                    }}
                   />
-                )}
-                <Box sx={{ mt: 2 }}>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                  >
-                    {type === 'login' ? 'Login' : 'Registrar'}
-                  </Button>
-                </Box>
-              </Form>
-            )}
-          </Formik>
-        </Box>
+                  {type === 'register' && (
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      fullWidth
+                      name="confirmPassword"
+                      label="Confirmação de Senha"
+                      type="password"
+                      id="confirmPassword"
+                      value={values.confirmPassword}
+                      onChange={handleChange}
+                      error={touched.confirmPassword && Boolean(errors.confirmPassword)}
+                      helperText={touched.confirmPassword && errors.confirmPassword}
+                      InputProps={{
+                        style: { color: 'var(--gray-100)', borderRadius: '8px' },
+                      }}
+                      InputLabelProps={{
+                        style: { color: 'var(--gray-400)' },
+                      }}
+                    />
+                  )}
+                  <Box sx={{ mt: 2 }}>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{
+                        backgroundColor: 'var(--blue-500)',
+                        color: 'var(--gray-100)',
+                        borderRadius: '25px',
+                        textTransform: 'none',
+                        padding: '0.75rem',
+                        fontSize: '1rem',
+                        fontWeight: 'bold',
+                        '&:hover': {
+                          backgroundColor: 'var(--blue-700)',
+                        },
+                      }}
+                    >
+                      {type === 'login' ? 'Login' : 'Registrar'}
+                    </Button>
+                  </Box>
+                </Form>
+              )}
+            </Formik>
+            <Box sx={{ mt: 2, textAlign: 'center' }}>
+              {type !== 'login' ? (
+                <Button onClick={() => navigate('/login')} sx={{ color: 'var(--purple-500)' }}>
+                  Já tem uma conta? Entrar
+                </Button>
+              ) : (
+                <Button onClick={() => navigate('/register')} sx={{ color: 'var(--purple-500)' }}>
+                  Não tem uma conta? Registrar
+                </Button>
+              )}
+            </Box>
+          </Box>
+        </Paper>
       </Grid>
     </Grid>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Avatar, Button, Divider } from '@mui/material';
 import { PencilLine } from 'phosphor-react';
+import { SignOut } from 'phosphor-react'; 
 import { useNavigate } from 'react-router-dom';
 
 export function Sidebar() {
@@ -16,14 +17,12 @@ export function Sidebar() {
   }, []);
 
   const handleLogout = () => {
-    // Remove os dados do usuário do localStorage
     localStorage.removeItem('loggedUser');
-    // Redireciona para a página de login
     navigate('/login');
   };
 
   if (!user) {
-    return null; // Ou exiba um loader ou algo do tipo
+    return null; 
   }
 
   return (
@@ -101,11 +100,9 @@ export function Sidebar() {
         Editar seu perfil
       </Button>
 
-
-      {/* Botão de Sair */}
       <Button
         variant="outlined"
-        startIcon={<PencilLine size={20} />}
+        startIcon={<SignOut size={20} />}
         onClick={handleLogout}
         sx={{
           marginTop: 3,

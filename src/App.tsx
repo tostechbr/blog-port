@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Home } from './pages/Home';
 import { AuthForm } from './pages/Login';
 import { Profile } from './components/Profile';
 
 import { Header } from './components/Header';
 
 import './global.css';
+import { Home } from './pages/Home';
 
 export function App() {
   return (
